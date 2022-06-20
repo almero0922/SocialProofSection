@@ -11,27 +11,42 @@
     margin: 0;
 }
 body{
-    width: 100vw;
-    height: auto;
     font-family: 'League Spartan', sans-serif;
     background-color: var(--white);
-    position: relative;
+    min-height: 100vh;
+    width: 100vw;
 }
 .top-background{
-    display: block;
-    height: 228px;
     background-image: url('./images/bg-pattern-top-mobile.svg');
-    position: relative;
+    display: inline-block;
+    background-repeat: no-repeat;
+    height: 224px;
+    width: 100vw;
+}
+.bottom-background{
+    background-image: url('./images/bg-pattern-bottom-mobile.svg');
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: top;
+    height: 224px;
+    width: 100vw;
 }
 .main-container{
-    position: absolute;
-    margin: 120px 20px;
-    padding: 0 6px;
-    top: -54px;
+    display: grid;
+    height: 1000px;
+    grid-template-rows: repeat(2, 1fr);
+    row-gap: 28px;
 }
 .info-container{
-    display: flex;
-    flex-direction: column;
+    height: 450px;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 240px 240px;
+    padding: 0 40px;
+}
+.text-resume-container{
+    width: 300px;
+    place-self: center;
 }
 .text-resume-container h1{
     font-size: 40px;
@@ -39,16 +54,16 @@ body{
     text-align: center;
     color: var(--veryDarkMagenta);
     font-weight: bold;
-    margin-bottom: 34px;
+    margin-bottom: 28px;
 }
 .text-resume-container p{
     text-align: center;
     color: var(--darkGrayishMagenta);
+    font-size: 18px;
     margin-bottom: 34px;
 }
 .rating-cards-container{
     width: 100%;
-    height: 220px;
     display: grid;
     row-gap: 14px;
     grid-template-rows: repeat(3, 1fr);
@@ -57,15 +72,11 @@ body{
 }
 .rating-cards-container div{
     height: 100%;
-    width: 100%;
+    width: 300px;
     background-color: var(--lightGrayishMagenta);
     border-radius: 10px;
     display: grid;
     place-items: center;
-}
-.rating-cards-container div h4{
-    color: var(--veryDarkMagenta);
-    font-weight: bold;
 }
 .rating-cards-container div span{
     display: block;
@@ -74,10 +85,15 @@ body{
     background-image: url('./images/icon-star.svg');
     background-repeat: space;
 }
+.rating-cards-container div h4{
+    color: var(--veryDarkMagenta);
+    font-weight: bold;
+}
 .buyer-cards-container{
     width: 100%;
     height: auto;
     display: grid;
+    justify-items: center;
     grid-template-rows: repeat(3, 1fr);
     row-gap: 14px;
 }
@@ -86,6 +102,10 @@ body{
     border-radius: 10px;
     height: 220px;
     padding: 28px 30px;
+    width: 300px;
+}
+.buyer-card p{
+    color: white;
 }
 .buyer-cards-container span{
     display: inline-block;
@@ -110,4 +130,26 @@ body{
     display: flex;
     align-items: center;
     margin-bottom: 28px;
+}
+.buyer-name{
+    color: white;
+}
+.buyer-description{
+    font-weight: 400;
+    color: var(--softPink);
+}
+@media (min-width: 1200px){
+    .main-container{
+        width: 80%;
+        margin: 0 auto;
+    }
+    .info-container{
+        grid-template-rows: 0;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .text-resume-container{
+        place-self: start;
+        text-align: left;
+        width: 100%;
+    }
 }
